@@ -1,0 +1,47 @@
+<div class="container-fluid my-2">
+  <cbc-ui-table-filter
+    *ngIf="loading"
+    [filterItems]="filterItems"
+    [(criteria)]="criteria"
+    [originalCriteria]="originalCriteriaValue"
+    (criteriaChange)="onCriteriaChange()"
+    (reset)="resetFilter()"
+  >
+  </cbc-ui-table-filter>
+</div>
+<div class="container-fluid mt-3">
+  <table *ngIf="loading" class="table table-info table-striped text-center">
+    <thead>
+      <th *ngFor="let col of cols">
+        {{ col.displayName }}
+      </th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td *ngFor="let col of cols">
+          <ng-container *ngIf="col.template">
+            <ng-container
+              *ngTemplateOutlet="
+                col.template;
+                context: { $implicit: record[col.name] }
+              "
+            >
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="!col.template">
+            {{ record[col.name] }}
+          </ng-container>
+        </td>
+        <td>
+          <button
+            class="btn btn-outline-success btn-sm"
+            (click)="onDetails(record)"
+          >
+            Details
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

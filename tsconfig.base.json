@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@cbc/data-flight": ["libs/data-flight/src/index.ts"],
+      "@cbc/feature-shell": ["libs/feature-shell/src/index.ts"],
+      "@cbc/ui-table": ["libs/ui-table/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

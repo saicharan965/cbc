@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/data-flight",
+  "sourceRoot": "libs/data-flight/src",
+  "prefix": "cbc",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/data-flight"],
+      "options": {
+        "jestConfig": "libs/data-flight/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/data-flight/src/**/*.ts",
+          "libs/data-flight/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

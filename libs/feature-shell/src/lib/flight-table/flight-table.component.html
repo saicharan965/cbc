@@ -1,0 +1,53 @@
+<h1 class="text-center my-2">VIEW FLIGHTS</h1>
+<div class="container-fluid">
+  <cbc-ui-table [tableConfig]="tableConfig">
+    <cbc-ui-table-filter-item>
+      <ng-template let-criteria>
+        <strong>Status</strong>
+
+        <div class="form-check" *ngFor="let status of statusArray">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="Status"
+            id="activeUsers"
+            (change)="onChange(criteria, status, $event)"
+            [checked]="criteria.status.indexOf(status) !== -1"
+          />
+          <label class="form-check-label" for="activeUsers">
+            {{ status }}
+          </label>
+        </div>
+      </ng-template>
+    </cbc-ui-table-filter-item>
+
+    <cbc-ui-table-filter-item>
+      <ng-template let-criteria>
+        <strong>Filter by Date</strong>
+
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Date</span>
+          <input type="date" class="form-control" [(ngModel)]="criteria.date">
+
+        </div>
+      </ng-template>
+    </cbc-ui-table-filter-item>
+
+    <cbc-ui-table-col displayName="Id" name="id"></cbc-ui-table-col>
+    <cbc-ui-table-col displayName="From" name="from">
+      <ng-template let-value>{{ value }} </ng-template>
+    </cbc-ui-table-col>
+    <cbc-ui-table-col displayName="To" name="to">
+      <ng-template let-value>{{ value }} </ng-template>
+    </cbc-ui-table-col>
+    <cbc-ui-table-col displayName="Status" name="status">
+      <ng-template let-value>{{ value }} </ng-template>
+    </cbc-ui-table-col>
+    <cbc-ui-table-col displayName="Departure" name="date">
+      <ng-template let-value>{{ value | date: 'd/M/y' }} </ng-template>
+    </cbc-ui-table-col>
+  </cbc-ui-table>
+</div>
+© 2022 GitHub, Inc.
+Terms
+Pri
