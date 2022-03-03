@@ -5,6 +5,7 @@
     "feature-shell": "libs/feature-shell",
     "shell": "apps/shell",
     "shell-e2e": "apps/shell-e2e",
+    "ui-form": "libs/ui-form",
     "ui-table": "libs/ui-table"
   }
 }

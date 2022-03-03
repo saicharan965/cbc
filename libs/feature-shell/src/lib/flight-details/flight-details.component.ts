@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FlightData, FlightStatus, FlightDataService } from '@cbc/data-flight';
+import { FormConfig } from 'libs/ui-form/src/lib/form.config';
 
 @Component({
   selector: 'cbc-flight-details',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightDetailsComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  formConfig!:FormConfig<FlightData>
+  flightStatus = FlightStatus
+  invalidFlightId!:boolean
+  flightId= new FormControl()
+    constructor(private _flightDataService:FlightDataService) { }
+  
+    ngOnInit(): void {
+      debugger
+      this.formConfig = FormConfig.create<FlightData>({
+        form:  new FormGroup({
+          'id': new FormControl(''),
+          'from': new FormControl('', [Validators.required, Validators.maxLength(7), this.customValidator()]),
+          'to': new FormControl('', [Validators.required, Validators.maxLength(7), this.customValidator()]),
+          'status': new FormControl(),
+          'date': new FormControl()
+        }),
+        load: (id: number) => this._flightDataService.GetById(id),
+        create: (flight) => this._flightDataService.create(flight),
+        update: (flight) => this._flightDataService.update(flight)
+      });
+      console.log(this.formConfig)
+    }
+    customValidator(): ValidatorFn {
+      return (control: AbstractControl): ValidationErrors | null => {
+        const isInvalid = control.value === 'BLACKBOX';
+        return isInvalid ? { randomErrorId: {value: control.value}} : null;
+      };
+    }
 }
