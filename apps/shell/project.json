@@ -14,7 +14,7 @@
         "polyfills": "apps/shell/src/polyfills.ts",
         "tsConfig": "apps/shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
+        "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets", "apps/shell/src/_redirects"],
         "styles": [
           "apps/shell/src/styles.scss",
           "node_modules/bootstrap/dist/css/bootstrap.min.css"
