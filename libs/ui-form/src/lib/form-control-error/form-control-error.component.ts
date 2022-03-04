@@ -6,10 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./form-control-error.component.scss']
 })
 export class FormControlErrorComponent implements OnInit {
-  @Input() id?: string;
-  @Input() error?: string;
-  constructor() { }
-
+ 
+ @Input() id?:string;
+ @Input() error?:string
   ngOnInit(): void {
   }
 

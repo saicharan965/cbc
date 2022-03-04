@@ -15,7 +15,7 @@ export class FormConfig<T> {
         create: (value: TRef) => Observable<any>,
         update: (value: TRef) => Observable<any>,
     }): FormConfig<TRef>{
-        debugger
+        debugger;
         return new FormConfig<TRef>(config.form, config.load, config.create, config.update);
     }
 }

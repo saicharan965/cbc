@@ -172,7 +172,6 @@ export class FlightDataService {
   constructor() { }
 
   GetById(id: number) {
-    debugger;
     const index = this.findIndex(id);
     return of(this.flghtData[index]).pipe(delay(500));
 
@@ -185,7 +184,6 @@ export class FlightDataService {
   }
 
   create(flight: FlightData): Observable<FlightData> {
-    debugger
     const flightWithHighestId = this.flghtData.reduce(function (prev, current) {
       return (prev.id > current.id) ? prev : current
     })
