@@ -3,5 +3,6 @@ import { FlightStatus } from './flightStatus';
 
 export class SearchFlightRequest extends Criteria {
     status: FlightStatus[] = []
-    date!: Date
+    startDate!: Date
+    endDate!: Date
 }

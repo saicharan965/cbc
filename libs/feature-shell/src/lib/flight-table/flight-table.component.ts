@@ -32,13 +32,16 @@ export class FlightTableComponent implements OnInit {
   }
 
   Search(criteria: SearchFlightRequest) {
-    const searchTerm = criteria.searchTerm;
-    const date = criteria.date
     let filteredFlightData = this.flightDataService.flghtData;
     if (criteria) {
-      if (date) {
-
-        filteredFlightData = filteredFlightData.filter(x => x.date.toLocaleString().indexOf(date.toLocaleString()) !== -1)
+      const startDate = criteria.startDate
+      const endDate = criteria.endDate
+      const searchTerm = criteria.searchTerm;
+      if (startDate) {
+        filteredFlightData = filteredFlightData.filter(x => new Date(startDate) <= new Date(x.date))
+      }
+      if (endDate) {
+        filteredFlightData = filteredFlightData.filter(x => new Date(endDate) >= new Date(x.date))
       }
       if (searchTerm) {
         debugger

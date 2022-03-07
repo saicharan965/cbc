@@ -15,7 +15,7 @@ export class UiTableFilterComponent {
   usedFilterItems!: number;
 
 
-  constructor() {}
+  constructor() { }
 
   resetFilter() {
     this.reset.next(undefined);
@@ -27,7 +27,11 @@ export class UiTableFilterComponent {
     if (this.criteria.searchTerm == "") {
       this.usedFilterItems = this.usedFilterItems - 1
     }
-    if (this.criteria.date == "") {
+    if (this.criteria.startDate == "") {
+      debugger
+      this.usedFilterItems = this.usedFilterItems - 1
+    }
+    if (this.criteria.endDate == "") {
       debugger
       this.usedFilterItems = this.usedFilterItems - 1
     }
