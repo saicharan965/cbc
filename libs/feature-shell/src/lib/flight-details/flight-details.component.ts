@@ -20,20 +20,22 @@ export class FlightDetailsComponent implements OnInit {
   flightStatus = FlightStatus;
   invalidFlightId!: boolean;
   flightId = new FormControl();
-  constructor(private _flightDataService: FlightDataService) {}
+  constructor(private _flightDataService: FlightDataService) { }
 
   ngOnInit(): void {
     this.config = FormConfig.create<FlightData>({
       form: new FormGroup({
-        id: new FormControl(''),
+        id: new FormControl('', [Validators.required]),
         from: new FormControl('', [
           Validators.required,
-          Validators.maxLength(7),
+          Validators.maxLength(20),
+          Validators.minLength(3),
           this.customValidator(),
         ]),
         to: new FormControl('', [
           Validators.required,
-          Validators.maxLength(7),
+          Validators.maxLength(20),
+          Validators.minLength(3),
           this.customValidator(),
         ]),
         status: new FormControl(),
@@ -43,7 +45,6 @@ export class FlightDetailsComponent implements OnInit {
       create: (flight) => this._flightDataService.create(flight),
       update: (flight) => this._flightDataService.update(flight),
     });
-    console.log(this.config);
   }
   customValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {

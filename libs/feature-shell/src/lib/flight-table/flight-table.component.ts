@@ -44,7 +44,6 @@ export class FlightTableComponent implements OnInit {
         filteredFlightData = filteredFlightData.filter(x => new Date(endDate) >= new Date(x.date))
       }
       if (searchTerm) {
-        debugger
         filteredFlightData = filteredFlightData.filter(x => x.id.toString().toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1)
       }
       if (criteria?.status?.length) {

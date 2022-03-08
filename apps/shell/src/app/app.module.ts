@@ -6,7 +6,7 @@ import { FeatureShellModule } from '@cbc/feature-shell';
 import { AppComponent } from './app.component';
 
 const ROUTES: Routes = [
-  { path: '', loadChildren: () => import('libs/feature-shell/src/lib/feature-shell.module').then(m=>m.FeatureShellModule) }
+  { path: '', loadChildren: () => import('libs/feature-shell/src/lib/feature-shell.module').then(m => m.FeatureShellModule) }
 ]
 
 @NgModule({

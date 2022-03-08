@@ -28,11 +28,9 @@ export class UiTableFilterComponent {
       this.usedFilterItems = this.usedFilterItems - 1
     }
     if (this.criteria.startDate == "") {
-      debugger
       this.usedFilterItems = this.usedFilterItems - 1
     }
     if (this.criteria.endDate == "") {
-      debugger
       this.usedFilterItems = this.usedFilterItems - 1
     }
   }

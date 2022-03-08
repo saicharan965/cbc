@@ -14,7 +14,13 @@ const ROUTES: Routes = [
 
 
 @NgModule({
-  imports: [CommonModule, UiTableModule, FormsModule, ReactiveFormsModule, UiFormModule, RouterModule.forChild(ROUTES)],
+  imports: [
+    CommonModule,
+    UiTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    UiFormModule,
+    RouterModule.forChild(ROUTES)],
   declarations: [
     FlightTableComponent,
     FlightDetailsComponent

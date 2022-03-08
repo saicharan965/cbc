@@ -25,7 +25,7 @@ export class UiTableComponent implements OnInit {
     private deepCloneService: DeepCloneService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.SetCriteria();
@@ -66,7 +66,6 @@ export class UiTableComponent implements OnInit {
   }
 
   resetFilter() {
-    debugger;
     Object.keys(this.criteria).forEach(key => {
       this.criteria[key] = this.deepCloneService.clone(this.originalCriteriaValue[key]);
     })

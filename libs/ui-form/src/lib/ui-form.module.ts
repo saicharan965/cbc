@@ -4,19 +4,21 @@ import { CommonModule } from '@angular/common';
 import { FormComponent } from './form/form.component';
 import { FormControlHolderComponent } from './form-control-holder/form-control-holder.component';
 import { FormControlErrorComponent } from './form-control-error/form-control-error.component';
+import { FormControlDirective } from './form-control.directive';
 
 @NgModule({
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   declarations: [
-    
     FormComponent,
     FormControlHolderComponent,
-    FormControlErrorComponent
+    FormControlErrorComponent,
+    FormControlDirective
   ],
   exports: [
     FormComponent,
     FormControlHolderComponent,
+    FormControlDirective,
     FormControlErrorComponent
   ],
 })
-export class UiFormModule {}
+export class UiFormModule { }

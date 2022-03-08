@@ -50,7 +50,6 @@ export class FormComponent implements OnInit {
     }    
   }
   onSave() {
-    debugger;
     if (this.formGroup.valid) {
       this.saving = true;
       this.config.update(this.formGroup.value).subscribe((x) => {
@@ -66,7 +65,6 @@ export class FormComponent implements OnInit {
   }
 
   private updateState(): void {
-    debugger;
     if (this.formGroup) {
       this.setIsDirty();
       const valid = this.formGroup.valid ?? false;
@@ -78,13 +76,11 @@ export class FormComponent implements OnInit {
   }
 
   private setIsDirty(): void {
-    debugger;
     this.dirty = this.originalValue !== JSON.stringify(this.formGroup.value);
     this.formService.dirty = this.dirty;
   }
 
   private setValue(value: any): void {
-    debugger;
     this.formGroup.patchValue(value);
     this.originalValue = JSON.stringify(this.formGroup.value);
     this.setIsDirty();
