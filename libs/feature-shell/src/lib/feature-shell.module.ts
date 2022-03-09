@@ -8,8 +8,9 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
 import { UiFormModule } from '@cbc/ui-form';
 
 const ROUTES: Routes = [
-  { path: '', component: FlightTableComponent },
-  { path: ':id', component: FlightDetailsComponent }
+  {path:'', redirectTo:'viewFlights', pathMatch:'full'},
+  { path: 'viewFlights', component: FlightTableComponent },
+  { path: 'viewFlights/:id', component: FlightDetailsComponent }
 ]
 
 
