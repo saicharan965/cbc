@@ -7,9 +7,9 @@
   },
   "scripts": {
     "ng": "nx",
-    "start": "nx serve",
-    "build": "nx build",
-    "test": "nx test"
+    "start": "nx serve shell",
+    "build": "nx build shell --configuration=production",
+    "test": "nx test shell"
   },
   "private": true,
   "dependencies": {
