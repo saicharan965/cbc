@@ -11,7 +11,8 @@
       "outputs": ["{workspaceRoot}/coverage/libs/feature-shell"],
       "options": {
         "jestConfig": "libs/feature-shell/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "tsConfig": "libs/feature-shell/tsconfig.spec.json"
       }
     },
     "lint": {

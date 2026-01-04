@@ -11,7 +11,8 @@
       "outputs": ["{workspaceRoot}/coverage/libs/ui-form"],
       "options": {
         "jestConfig": "libs/ui-form/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "tsConfig": "libs/ui-form/tsconfig.spec.json"
       }
     },
     "lint": {

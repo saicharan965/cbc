@@ -17,7 +17,9 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "target": "es2020"
+    "target": "es2020",
+    "moduleResolution": "bundler",
+    "module": "preserve"
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
