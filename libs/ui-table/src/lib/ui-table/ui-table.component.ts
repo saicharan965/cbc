@@ -9,7 +9,8 @@ import { UiTableFilterItemComponent } from '../ui-table-filter-item/ui-table-fil
 @Component({
   selector: 'cbc-ui-table',
   templateUrl: './ui-table.component.html',
-  styleUrls: ['./ui-table.component.scss']
+  styleUrls: ['./ui-table.component.scss'],
+  standalone: false,
 })
 export class UiTableComponent implements OnInit {
   @Input() tableConfig?: TableConfig<any, any>

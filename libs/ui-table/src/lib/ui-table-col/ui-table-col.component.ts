@@ -3,7 +3,8 @@ import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/co
 @Component({
   selector: 'cbc-ui-table-col',
   templateUrl: './ui-table-col.component.html',
-  styleUrls: ['./ui-table-col.component.scss']
+  styleUrls: ['./ui-table-col.component.scss'],
+  standalone: false,
 })
 export class UiTableColComponent implements OnInit {
   @Input() displayName!: string ;

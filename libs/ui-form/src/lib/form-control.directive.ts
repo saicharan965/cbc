@@ -3,7 +3,8 @@ import { NgControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 @Directive({
-  selector: '[formControlName], [formControl], [ngModel]'
+  selector: '[formControlName], [formControl], [ngModel]',
+  standalone: false,
 })
 export class FormControlDirective implements OnDestroy, AfterViewInit {
   subscription: Subscription | undefined;

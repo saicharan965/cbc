@@ -13,8 +13,8 @@ import { FormControlErrorComponent } from '../form-control-error/form-control-er
   selector: 'cbc-form-control-holder',
   templateUrl: './form-control-holder.component.html',
   styleUrls: ['./form-control-holder.component.scss'],
-  providers: [{ provide: ControlContainer, useExisting: FormGroupDirective }]
-
+  providers: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
+  standalone: false,
 })
 export class FormControlHolderComponent implements AfterContentInit {
   @ContentChild(NgControl) control?: NgControl;

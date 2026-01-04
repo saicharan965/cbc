@@ -4,7 +4,8 @@ import { UiTableFilterItemComponent } from '../ui-table-filter-item/ui-table-fil
 @Component({
   selector: 'cbc-ui-table-filter',
   templateUrl: './ui-table-filter.component.html',
-  styleUrls: ['./ui-table-filter.component.scss']
+  styleUrls: ['./ui-table-filter.component.scss'],
+  standalone: false,
 })
 export class UiTableFilterComponent {
   @Input() filterItems!: QueryList<UiTableFilterItemComponent>;

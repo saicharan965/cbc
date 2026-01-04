@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -14,32 +14,33 @@ import { FormConfig } from 'libs/ui-form/src/lib/form.config';
   selector: 'cbc-flight-details',
   templateUrl: './flight-details.component.html',
   styleUrls: ['./flight-details.component.scss'],
+  standalone: false,
 })
 export class FlightDetailsComponent implements OnInit {
   config!: FormConfig<FlightData>;
   flightStatus = FlightStatus;
   invalidFlightId!: boolean;
-  flightId = new FormControl();
+  flightId = new UntypedFormControl();
   constructor(private _flightDataService: FlightDataService) { }
 
   ngOnInit(): void {
     this.config = FormConfig.create<FlightData>({
-      form: new FormGroup({
-        id: new FormControl('', [Validators.required]),
-        from: new FormControl('', [
+      form: new UntypedFormGroup({
+        id: new UntypedFormControl('', [Validators.required]),
+        from: new UntypedFormControl('', [
           Validators.required,
           Validators.maxLength(20),
           Validators.minLength(3),
           this.customValidator(),
         ]),
-        to: new FormControl('', [
+        to: new UntypedFormControl('', [
           Validators.required,
           Validators.maxLength(20),
           Validators.minLength(3),
           this.customValidator(),
         ]),
-        status: new FormControl(),
-        date: new FormControl(),
+        status: new UntypedFormControl(),
+        date: new UntypedFormControl(),
       }),
       load: (id: number) => this._flightDataService.GetById(id),
       create: (flight) => this._flightDataService.create(flight),

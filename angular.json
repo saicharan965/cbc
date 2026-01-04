@@ -1,11 +1,5 @@
 {
-  "version": 2,
-  "projects": {
-    "data-flight": "libs/data-flight",
-    "feature-shell": "libs/feature-shell",
-    "shell": "apps/shell",
-    "shell-e2e": "apps/shell-e2e",
-    "ui-form": "libs/ui-form",
-    "ui-table": "libs/ui-table"
-  }
+  "version": 1,
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "projects": {}
 }

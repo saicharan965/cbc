@@ -3,18 +3,30 @@
   <ng-content></ng-content>
 
   <div class="invalid-feedback">
-    <div *ngFor="let activeError of activeErrors">{{ activeError }}</div>
-    <div *ngIf="minLengthError">
-      Min length is {{ minLengthError.requiredLength }} but actual length is
-      {{ minLengthError.actualLength }}.
-    </div>
-    <div *ngIf="maxLengthError">
-      Max length is {{ maxLengthError.requiredLength }} but actual length is
-      {{ maxLengthError.actualLength }}.
-    </div>
-    <div *ngIf="minError">Min value is {{ minError }}.</div>
-    <div *ngIf="maxError">Max value is {{ maxError }}.</div>
-    <div *ngIf="emailError">Invalid email.</div>
+    @for (activeError of activeErrors; track activeError) {
+      <div>{{ activeError }}</div>
+    }
+    @if (minLengthError) {
+      <div>
+        Min length is {{ minLengthError.requiredLength }} but actual length is
+        {{ minLengthError.actualLength }}.
+      </div>
+    }
+    @if (maxLengthError) {
+      <div>
+        Max length is {{ maxLengthError.requiredLength }} but actual length is
+        {{ maxLengthError.actualLength }}.
+      </div>
+    }
+    @if (minError) {
+      <div>Min value is {{ minError }}.</div>
+    }
+    @if (maxError) {
+      <div>Max value is {{ maxError }}.</div>
+    }
+    @if (emailError) {
+      <div>Invalid email.</div>
+    }
   </div>
 </div>
 

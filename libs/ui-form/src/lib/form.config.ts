@@ -1,16 +1,16 @@
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 export class FormConfig<T> {
     private constructor(
-        public formGroup: FormGroup,
+        public formGroup: UntypedFormGroup,
         public load: (id: number) => Observable<T>, 
         public create: (value: T) => Observable<unknown>, 
         public update: (value: T) => Observable<unknown>){
         }
 
     static create<TRef>(config: {
-        form: FormGroup,
+        form: UntypedFormGroup,
         load: (id: number) => Observable<TRef>,
         create: (value: TRef) => Observable<any>,
         update: (value: TRef) => Observable<any>,

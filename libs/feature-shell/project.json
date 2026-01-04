@@ -1,19 +1,21 @@
 {
+  "name": "feature-shell",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "root": "libs/feature-shell",
   "sourceRoot": "libs/feature-shell/src",
   "prefix": "cbc",
+  "tags": [],
   "targets": {
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/feature-shell"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/feature-shell"],
       "options": {
-        "jestConfig": "libs/feature-shell/jest.config.js",
+        "jestConfig": "libs/feature-shell/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": [
           "libs/feature-shell/src/**/*.ts",
@@ -21,6 +23,5 @@
         ]
       }
     }
-  },
-  "tags": []
+  }
 }

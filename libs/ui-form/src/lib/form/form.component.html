@@ -1,32 +1,36 @@
 <form [formGroup]="formGroup">
-    <div class="row">
-        <div class="col">
-            <h3>{{title}}</h3>
+  <div class="row">
+    <div class="col">
+      <h3>{{title}}</h3>
+    </div>
+    <div class="col">
+      @if (!loading) {
+        <div class="float-end btn btn-group">
+          <button class="btn btn-outline-secondary"
+            type="button"
+            (click)="navigateBack()"
+            >
+            Back
+          </button>
+          <button class="btn btn-primary"
+            [disabled]="!canSave||saving"
+            (click)="onSave()">
+            Save
+          </button>
         </div>
-        <div class="col">
-            <div *ngIf="!loading" class="float-end btn btn-group">
-                <button class="btn btn-outline-secondary"
-                type="button"
-                (click)="navigateBack()"
-                >
-                Back
-                </button>
-                <button class="btn btn-primary"
-                [disabled]="!canSave||saving"
-                (click)="onSave()">
-                Save
-                </button>
-            </div>
-        </div>
+      }
     </div>
+  </div>
 
-    <div [hidden]="loading">
-        <ng-content></ng-content>
-    </div>
+  <div [hidden]="loading">
+    <ng-content></ng-content>
+  </div>
 
-    <div class="container" *ngIf="loading">
-        <div class="spinner-border text-primary" role="status">
-            <span class="sr-only"></span>
-          </div>
+  @if (loading) {
+    <div class="container">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only"></span>
+      </div>
     </div>
+  }
 </form>

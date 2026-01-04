@@ -7,7 +7,8 @@ import { of } from 'rxjs';
 @Component({
   selector: 'cbc-flight-table',
   templateUrl: './flight-table.component.html',
-  styleUrls: ['./flight-table.component.scss']
+  styleUrls: ['./flight-table.component.scss'],
+  standalone: false,
 })
 export class FlightTableComponent implements OnInit {
   statusArray = [FlightStatus.onTime, FlightStatus.delayed, FlightStatus.cancelled];

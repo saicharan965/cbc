@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormGroupDirective } from '@angular/forms';
+import { UntypedFormGroup, FormGroupDirective } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormConfig } from '../form.config';
 import { FormService } from '../form.service';
@@ -9,7 +9,8 @@ import { DeepCloneService } from '@cbc/ui-table';
   selector: 'cbc-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss'],
-  providers: [FormGroupDirective]
+  providers: [FormGroupDirective],
+  standalone: false,
 })
 export class FormComponent implements OnInit {
   @Input()
@@ -21,7 +22,7 @@ export class FormComponent implements OnInit {
   saving!: boolean;
   canSave!: boolean;
   originalValue!: string;
-  formGroup!: FormGroup;
+  formGroup!: UntypedFormGroup;
 
   constructor(
     private formGroupDirective: FormGroupDirective,
